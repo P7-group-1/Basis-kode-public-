@@ -29,10 +29,23 @@ header {
   margin-right: 0px;
 }
 
+.logo div {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo h1 {
   font-size: 30px;
   color: #4CAF50;
-  margin: 0;
+  margin: 0px;
+  text-align: left;
+}
+
+.logo p {
+  font-size: 14px;
+  color: #000000;
+  margin: 0px;
+  text-align: left;
 }
 
 nav {
@@ -79,6 +92,17 @@ h2 {
   color: #333;
 }
 
+/* Center-aligned page */
+.centered-page h2 {
+  text-align: center;
+}
+
+/* Left-aligned page */
+.left-aligned-page h2 {
+  text-align: left;
+  padding-left: 40px; /* to change margin-left */
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
@@ -89,19 +113,22 @@ h2 {
 
 .search-bar input {
   width: 80%;
-  padding: 20px;
+  padding: 15px; /* Adjusted padding to match button */
   font-size: 16px;
   border-radius: 25px 0 0 25px;
   border: 1px solid #ccc;
   outline: none;
+  box-sizing: border-box; /*Ensures padding doesn't affect height */
 }
 
 .search-bar button {
-  padding: 10px 15px;
+  padding: 15px; /* Match padding to input field */
+  font-size: 16px; /* Match font size to input */
   background-color: #ddd;
   border: none;
   cursor: pointer;
   border-radius: 0 25px 25px 0;
+  height: auto /*Ensures it matches height of the input */
 }
 
 p {
@@ -126,6 +153,8 @@ p {
   object-fit: contain; /* Ensure the image scales well */
   border-radius: 50%; /* Optional: Make images look circular */
 }
+
+
 /* product page*/
 #product-details {
   padding: 20px;
@@ -143,3 +172,79 @@ p {
   margin: 0 auto;
 }
 
+
+/* Carousel Container */
+.carousel {
+  position: relative;
+  width: 60%;
+  height: 200px;
+  margin: auto;
+  overflow: hidden; /* Ensures only one image is visible */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+} 
+
+/* Carousel Images */
+.carousel-images {
+  display: flex; /* Align images in a row */
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.carousel-images img {
+  width: 100%; /* Each image takes up full carousel width */
+  flex-shrink: 0; /* Prevent images from shrinking */
+}
+
+/* Navigation Buttons */
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Category List */
+.category-list {
+  margin: 50px 0;
+  padding-left: 15px;
+  max-width: 1300px;
+}
+
+.category-list ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+}
+
+.category-list li {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.category-list a {
+  text-decoration: none; /* Remove underline */
+  color: #4CAF50; /* Link color */
+  transition: color 0.3s ease;
+}
+
+.category-list a:hover {
+  color: #2f6831; /* Darker color on hover */
+}
+
+.category-list ul {
+  display: grid; /* Grid layout for better alignment */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto-adjust based on available space */
+  gap: 10px;
+}

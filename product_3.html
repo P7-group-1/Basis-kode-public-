@@ -5,27 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NutriScan</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
 <!-- Header Section -->
 <header id="header-section">
     <div class="logo">
-      <img src="Images/logo.PNG" alt="NutriScan Logo">
-      <h1>NutriScan</h1>
+      <img src="Images/logo_2.PNG" alt="NutriScan Logo" onclick="goToHomepage()">
+      <div>
+      <h1 onclick="goToHomepage()">NutriScan</h1>
+      <p onclick="goToHomepage()">One click away from a healthier future</p>
+      </div>
     </div>
     <nav>
-      <a href="#">Home</a>
+      <a href="homepage.html">Home</a>
       <div class="dropdown">
-        <a href="#">Products</a>
+        <a href="products_all.html">Products</a>
         <div class="dropdown-content">
-          <a href="#">Product 1</a>
-          <a href="#">Product 2</a>
+          <a href="product_1.html">Product 1</a>
+          <a href="product_2.html">Product 2</a>
+          <a href="product_3.html">Product 3 </a>
         </div>
       </div>
-      <a href="#">Information</a>
-      <a href="#">Contact us</a>
+      <a href="information.html">Information</a>
+      <a href="contactus.html">Contact us</a>
     </nav>
     <div class="auth-links">
       <a href="#">Login</a>
