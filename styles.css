@@ -87,9 +87,22 @@ main {
   margin-top: 50px;
 }
 
+h1 {
+  font-size: 40px;
+  color: #4CAF50;
+  margin-top: 50px;
+}
+
 h2 {
   font-size: 32px;
   color: #333;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 30px;
+  color: #000000;
+  margin-top: 40px;
 }
 
 /* Center-aligned page */
@@ -97,8 +110,20 @@ h2 {
   text-align: center;
 }
 
+
 /* Left-aligned page */
 .left-aligned-page h2 {
+  text-align: left;
+  padding-left: 40px; /* to change margin-left */
+  margin-top: 40px;
+}
+
+.left-aligned-page h1 {
+  text-align: left;
+  padding-left: 40px; /* to change margin-left */
+}
+
+.left-aligned-page p {
   text-align: left;
   padding-left: 40px; /* to change margin-left */
 }
@@ -129,12 +154,6 @@ h2 {
   cursor: pointer;
   border-radius: 0 25px 25px 0;
   height: auto /*Ensures it matches height of the input */
-}
-
-p {
-    font-size: 40px;
-    margin-top: 30px;
-    color: #4CAF50;
 }
 
 .emojis {
@@ -173,26 +192,33 @@ p {
 }
 
 
-/* Carousel Container */
+/* carousel container */
 .carousel {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   position: relative;
   width: 60%;
-  height: 200px;
+  max-width: 900px;
+  height: 300px;
   margin: auto;
-  overflow: hidden; /* Ensures only one image is visible */
   border: 2px solid #ccc;
   border-radius: 10px;
-} 
+}
 
-/* Carousel Images */
+/* Carousel images */
 .carousel-images {
   display: flex; /* Align images in a row */
-  transition: transform 0.5s ease; /* Smooth transition */
+  transition: transform 1.5s ease; /* Smooth transition */
+  width: 100%;
 }
 
 .carousel-images img {
-  width: 100%; /* Each image takes up full carousel width */
-  flex-shrink: 0; /* Prevent images from shrinking */
+  width: calc(100% / 3); /* Each image takes up full carousel width */
+  height: 100%; /*images fills out the carousel */
+  object-fit: cover; /*ensures images scale properly */
+  flex-shrink: 0;
+  padding: 2px;
 }
 
 /* Navigation Buttons */

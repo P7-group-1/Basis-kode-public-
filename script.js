@@ -21,30 +21,60 @@ const imagesContainer = document.querySelector('.carousel-images');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
+//carousel state
 let currentIndex = 0; // Keep track of the current image
-const totalImages = imagesContainer.children.length; // Total number of images
+const totalImages = document.querySelectorAll('.carousel-images img').length; // Total number of images
+const imagesPerSlide = 3; // Show 3 images at a time
 
 // Function to update the carousel's position
 function updateCarousel() {
-    const offset = -currentIndex * 100; // Move by 100% for each image
-    imagesContainer.style.transform = `translateX(${offset}%)`;
+  const offset = -(currentIndex * (100 / imagesPerSlide)); // Calculate offset percentage
+  imagesContainer.style.transform = `translateX(${offset}%)`;
+}
+
+//move to next set of images
+function nextSlide() {
+  if (currentIndex < totalImages - imagesPerSlide) {
+    currentIndex++;
+  } else {
+    currentIndex = 0; // Loop back to the beginning
   }
+  updateCarousel();
+}
+
+//move to the previous set of images 
+function prevSlide() {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalImages - imagesPerSlide; // Loop back to the last full set
+  }
+  updateCarousel();
+}
+
+// Attach event listeners to buttons
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
   
   // Click event for "Next" button
-  nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages; // Loop back to the start
-    updateCarousel();
-  });
+  //nextButton.addEventListener('click', () => {
+    //currentIndex = (currentIndex + 1) % totalImages; // Loop back to the start
+    //updateCarousel();
+ // });
   
   // Click event for "Prev" button
-  prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop back to the end
-    updateCarousel();
-  });
+  //prevButton.addEventListener('click', () => {
+    //currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop back to the end
+    //updateCarousel();
+  //});
 
   // Auto-slide every 5 seconds
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
-  }, 5000);
+//setInterval(() => {
+    //currentIndex = (currentIndex + 1) % totalImages;
+    //updateCarousel();
+  //}, 5000);
   
