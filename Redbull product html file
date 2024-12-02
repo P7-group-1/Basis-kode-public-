@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriScan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+  <body id="product-page">
+
+
+<!-- Header Section -->
+<header id="header-section">
+    <div class="logo">
+      <img src="Images/logo.PNG" alt="NutriScan Logo">
+      <h1>NutriScan</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <div class="dropdown">
+        <a href="#">Products</a>
+        <div class="dropdown-content">
+          <a href="#">RedBull, 355 ml</a>
+          <a href="#">Product 2</a>
+        </div>
+      </div>
+      <a href="#">Information</a>
+      <a href="#">Contact us</a>
+    </nav>
+    <div class="auth-links">
+      <a href="#">Login</a>
+      <a href="#">Sign up</a>
+    </div>
+    <div class="header-search-bar">
+      <input type="text" placeholder="Search products..." />
+      <button>Search</button>
+    </div>
+  </header>
+
+  <!--Redbull info-->
+  <div id="product-details">
+    <h3 id="product-name">RedBull, 355 ml</h3>
+    <div class="content">
+      <img id="redbull-img" src="Images/redbull.png" alt="Product Image">
+    <div class="text">
+    <h4>What's in the product?</h4>
+    <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+
+    <h4>Overall rating:</h4>
+    <img class="green-emoji" src="Images/green-smiley.png" alt="Green Smiley Face">
+    <h4>Recommendation:</h4>
+    <p id="product-recommendation">E.g. small amounts, alternative products, etc. </p>
+    </div>
+</div>
+
+   <!-- Bottom Emoji Section -->
+   <div class="product-emojis">
+    <div class="product-emoji">
+      <img src="Images/emoji.png" alt="emoji">
+    </div>
+  </div>
+  <link rel="stylesheet" href="styles.css">
+
