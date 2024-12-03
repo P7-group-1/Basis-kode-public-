@@ -4,46 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NutriScan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-  <body id="product-page">
-
+<body>
 
 <!-- Header Section -->
 <header id="header-section">
-    <div class="logo">
-      <img src="Images/logo.PNG" alt="NutriScan Logo">
-      <h1>NutriScan</h1>
+  <div class="logo">
+    <img src="Images/logo_2.PNG" alt="NutriScan Logo">
+    <div>
+      <h1 onclick="goToHomepage()">NutriScan</h1>
+      <p onclick="goToHomepage()">One click away from a healthier future</p>
     </div>
+  </div>
     <nav>
-      <a href="#">Home</a>
+      <a href="homepage.html">Home</a>
       <div class="dropdown">
-        <a href="#">Products</a>
+        <a href="products_all.html">Products</a>
         <div class="dropdown-content">
-          <a href="#">RedBull, 355 ml</a>
-          <a href="#">Product 2</a>
+          <a href="product_1.html">Redbull</a>
+          <a href="product_2.html">Shredded pizza topping</a>
+          <a href="product_3.html">Product 3</a>
         </div>
       </div>
-      <a href="#">Information</a>
-      <a href="#">Contact us</a>
+      <a href="information.html">Information</a>
+      <a href="contactus.html">Contact us</a>
     </nav>
     <div class="auth-links">
       <a href="#">Login</a>
       <a href="#">Sign up</a>
     </div>
-    <div class="header-search-bar">
-      <input type="text" placeholder="Search products..." />
-      <button>Search</button>
-    </div>
   </header>
+  
+  <nav> <!-- breadcrumb-->
+    <ul class="breadcrumb">
+      <li><a href="products_all.html">Product categories </a></li>
+      <li><a href="beverages.html">Beverages </a></li>
+      <li>--Booster</li>
+    </ul>
+  </nav>
 
-  <!--Redbull info-->
+  <!--Booster info-->
   <div id="product-details">
-    <h3 id="product-name">RedBull, 355 ml</h3>
+    <h3 id="product-name">--Booster, 355 ml</h3>
     <div class="content">
-      <img id="redbull-img" src="Images/redbull.png" alt="Product Image">
+      <img id="redbull-img" src="Images/booster.png" alt="Product Image">
     <div class="text">
     <h4>What's in the product?</h4>
     <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
@@ -53,11 +59,12 @@
     <h4>Recommendation:</h4>
     <p id="product-recommendation">E.g. small amounts, alternative products, etc. </p>
     </div>
-</div>
+  </div>
 
-   <!-- Bottom Emoji Section -->
-   <div class="product-emojis">
-    <div class="product-emoji">
+
+   <!-- Tree Emoji Section -->
+  <div class="emojis">
+    <div class="emoji">
       <img src="Images/emoji.png" alt="emoji">
     </div>
   </div>

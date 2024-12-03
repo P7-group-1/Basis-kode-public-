@@ -59,22 +59,5 @@ prevButton.addEventListener('click', prevSlide);
 // Auto-slide every 5 seconds
 setInterval(nextSlide, 5000);
 
-  
-  // Click event for "Next" button
-  //nextButton.addEventListener('click', () => {
-    //currentIndex = (currentIndex + 1) % totalImages; // Loop back to the start
-    //updateCarousel();
- // });
-  
-  // Click event for "Prev" button
-  //prevButton.addEventListener('click', () => {
-    //currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop back to the end
-    //updateCarousel();
-  //});
 
-  // Auto-slide every 5 seconds
-//setInterval(() => {
-    //currentIndex = (currentIndex + 1) % totalImages;
-    //updateCarousel();
-  //}, 5000);
   

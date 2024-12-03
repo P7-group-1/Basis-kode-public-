@@ -98,6 +98,11 @@ h2 {
   color: #333;
 }
 
+h3 {
+  font-size: 28px;
+  color:#333
+}
+
 p {
   font-size: 20px;
   margin-top: 30px;
@@ -122,8 +127,9 @@ p {
   padding-left: 40px; /* to change margin-left */
 }
 
+
 .left-aligned-page p {
-  text-align: left;
+  text-align: left ;
   padding-left: 40px; /* to change margin-left */
 }
 
@@ -172,6 +178,13 @@ p {
   border-radius: 50%; /* Optional: Make images look circular */
 }
 
+#redbull-img {
+  float: right;
+  margin-left: 20px; /* Add some space between the image and the text */
+  margin-right: 100px;
+  max-width: 1000; /* Adjust the image size if necessary */
+}
+
 /* Styling of the breadcrumb*/
 ul.breadcrumb {
   padding: 10px 16px;
@@ -182,7 +195,13 @@ ul.breadcrumb {
 /* Display breadcrumb items side by side */
 ul.breadcrumb li {
   display: inline;
-  font-size: 18px;
+  
+}
+
+/* font size for all list items*/
+ul.breadcrumb li,
+ul.breadcrumb li a {
+  font-size: 14px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -214,7 +233,6 @@ ul.breadcrumb li a:hover {
   display: block;
   margin: 0 auto;
 }
-
 
 /* carousel container */
 .carousel {
