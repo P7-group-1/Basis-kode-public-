@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriScan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<!-- Header Section -->
+<header id="header-section">
+  <div class="logo">
+    <img src="Images/logo_2.PNG" alt="NutriScan Logo">
+    <div>
+      <h1 onclick="goToHomepage()">NutriScan</h1>
+      <p onclick="goToHomepage()">One click away from a healthier future</p>
+    </div>
+  </div>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <div class="dropdown">
+        <a href="products_all.html">Products</a>
+        <div class="dropdown-content">
+          <a href="product_1.html">Redbull</a>
+          <a href="product_2.html">Shredded pizza topping</a>
+          <a href="product_3.html">Product 3</a>
+        </div>
+      </div>
+      <a href="information.html">Information</a>
+      <a href="contactus.html">Contact us</a>
+    </nav>
+    <div class="auth-links">
+      <a href="#">Login</a>
+      <a href="#">Sign up</a>
+    </div>
+  </header>
+
+  <!-- Salling pizza salami info-->
+  <div id="product-details">
+    <h3 id="product-name">Redbull, 355</h3>
+    <div class="content">
+    <img src="Images/redbull.png" alt="Product Image">
+    <div class="text">
+    <h4>What's in the product?</h4>
+    <p id="product-description"></p>
+    <ul id="nutrition-values"></ul>
+    <h4>Overall rating:</h4>
+    <img src="Images/green-smiley.png" alt="smiley green">
+    <h4>Recommendation:</h4>
+    <p id="product-recommendation"></p>
+    </div>
+</div>
+
+   <!-- Tree Emoji Section -->
+   <div class="emojis">
+    <div class="emoji">
+      <img src="Images/emoji.png" alt="emoji">
+    </div>
+  </div>
+  <link rel="stylesheet" href="styles.css">
+
