@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriScan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header id="header-section">
+    <div class="logo">
+      <img src="Images/logo_2.PNG" alt="NutriScan Logo">
+      <div>
+        <h1 onclick="goToHomepage()">NutriScan</h1>
+        <p onclick="goToHomepage()">One click away from a healthier future</p>
+      </div>
+    </div>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <div class="dropdown">
+        <a href="products_all.html">Products &#11206;</a>
+        <div class="dropdown-content">
+          <a href="beverages.html">Beverages</a>
+          <a href="dairy.html">Dairy</a>
+          <a href="frozenfoods.html">Frozen food</a>
+        </div>
+      </div>
+      <a href="information.html">Information</a>
+      <a href="contactus.html">Contact us</a>
+    </nav>
+    <div id="userArea">
+      <a href="login.html" id="loginLink">Log in</a>
+      <a href="signup.html" id="signupLink">Sign up</a>
+  </div>
+  <script> 
+          window.addEventListener('DOMContentLoaded', function() { 
+          const userArea = document.getElementById('userArea');
+          const loggedInUser = localStorage.getItem('loggedInUser');
+
+          if (loggedInUser) {
+          userArea.innerHTML = `
+            <div class="dropdown">
+              <a href="javascript:void(0)">${loggedInUser}</a>
+              <div class="dropdown-content">
+                <a href="user.html">Profile</a>
+                <a href="javascript:void(0)" id="logoutLink">Log out</a>
+              </div>
+            </div>
+          `;
+
+          document.getElementById('logoutLink').addEventListener('click', function() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'homepage.html';
+          });
+          }
+      });
+  </script>
+  </header>
+  <!-- Main Section -->
+  <main id="main-section">
+    <h2>Sign up</h2>
+    <form id="signupForm"> <!-- Make input fields for all neccesarry data for a user -->
+      <label for="username">Username</label>
+      <input type="text" id="newUsername" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="newPassword" name="password" required>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <button type="submit">Sign up</button>
+    </form>
+    <p id="signupMessage"></p>
+    </main>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Forhindrer standardformular-indsendelse
+
+            // Create constants for the input fields
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const signupMessage = document.getElementById('signupMessage');
+
+            // Check if passwords match - Error-message is css styling
+            if (newPassword !== confirmPassword) {
+                signupMessage.textContent = 'Passwords do not match';
+                signupMessage.className = 'error-message';
+                return;
+            }
+
+            // Check if username already exists
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const existingUser = users.find(user => user.username === newUsername);
+            if (existingUser) {
+                signupMessage.textContent = 'Username already exists';
+                signupMessage.className = 'error-message';
+                return;
+            }
+
+            // Add new user to the list and save to localStorage - Sucess-message is css styling
+            users.push({ username: newUsername, password: newPassword });
+            localStorage.setItem('users', JSON.stringify(users));
+            signupMessage.textContent = 'User created successfully';
+            signupMessage.className = 'success-message';
+
+            // Redirect to login page after a short delay
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
