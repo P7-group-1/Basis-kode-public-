@@ -34,29 +34,6 @@
       <a href="login.html" id="loginLink">Log in</a>
       <a href="signup.html" id="signupLink">Sign up</a>
   </div>
-  <script>
-      window.addEventListener('DOMContentLoaded', function() {
-          const userArea = document.getElementById('userArea');
-          const loggedInUser = localStorage.getItem('loggedInUser');
-
-          if (loggedInUser) {
-          userArea.innerHTML = `
-            <div class="dropdown">
-              <a href="javascript:void(0)">${loggedInUser}</a>
-              <div class="dropdown-content">
-                <a href="user.html">Profile</a>
-                <a href="javascript:void(0)" id="logoutLink">Log out</a>
-              </div>
-            </div>
-          `;
-
-          document.getElementById('logoutLink').addEventListener('click', function() {
-            localStorage.removeItem('loggedInUser');
-            window.location.href = 'homepage.html';
-          });
-          }
-      });
-  </script>
   </header>
 
 <!-- Main Section -->
