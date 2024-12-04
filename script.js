@@ -59,5 +59,28 @@ prevButton.addEventListener('click', prevSlide);
 // Auto-slide every 5 seconds
 setInterval(nextSlide, 5000);
 
+// Login
+document.getElementById('loginButton').addEventListener('click', function() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-  
+  // Simuleret login-validering
+  if (username === 'demo' && password === 'password') {
+      localStorage.setItem('LoggedInUser', username); //gemmer brugernavnet i local storage
+      // Hvis login er korrekt, omdirigeres brugeren til en anden side
+      window.location.href = 'homepage.html';
+  } else {
+      // Hvis login er forkert, vis en fejlbesked
+      document.getElementById('loginMessage').textContent = 'Invalid username or password.';
+      document.getElementById('loginMessage').style.color = 'red';
+  }
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+  const userArea = document.getElementById('userArea');
+  const loggedInUser = localStorage.getItem('loggedInUser');
+
+  if (loggedInUser) {
+      userArea.innerHTML = `<span>Welcome, ${loggedInUser}</span>`;
+  }
+});

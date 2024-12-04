@@ -30,10 +30,20 @@
       <a href="information.html">Information</a>
       <a href="contactus.html">Contact us</a>
     </nav>
-    <div class="auth-links">
-      <a href="login.html">Log in</a>
-      <a href="#">Sign up</a>
-    </div>
+    <div id="userArea">
+      <a href="login.html" id="loginLink">Log in</a>
+      <a href="signup.html" id="signupLink">Sign up</a>
+  </div>
+  <script>
+      window.addEventListener('DOMContentLoaded', function() {
+          const userArea = document.getElementById('userArea');
+          const loggedInUser = localStorage.getItem('loggedInUser');
+
+          if (loggedInUser) {
+              userArea.innerHTML = `${loggedInUser}`;
+          }
+      });
+  </script>
   </header>
 
 <!-- Main Section -->
