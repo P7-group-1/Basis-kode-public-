@@ -167,13 +167,13 @@ p {
 }
 
 .search-bar button {
-  padding: 15px; /* Match padding to input field */
+  padding: 15px; /* Match the input field's padding */
   font-size: 16px; /* Match font size to input */
   background-color: #ddd;
-  border: none;
-  cursor: pointer;
-  border-radius: 0 25px 25px 0;
-  height: auto /*Ensures it matches height of the input */
+  border: 1px solid #ccc; /* Match the border of the input field */
+  box-sizing: border-box; /* Ensure padding and border are included in size calculation */
+  border-radius: 0 25px 25px 0; /* Maintain rounded edges */
+  height: auto; /* Automatically adjust height */
 }
 
 /*OBS. this is only the search bar on product pages */
