@@ -133,6 +133,21 @@ p {
   padding-left: 40px; /* to change margin-left */
 }
 
+/*these two are literally just for bullet points on the information page */ 
+.indented-list {
+  list-style-type: disc; /* Adds bullet points */
+  margin-left: 60px; /* Adds an indent */
+  padding-left: 20px; /* Optional fine-tuning */
+  color:#000000;
+}
+
+.indented-list li {
+  margin-bottom: 10px; /* Space between list items */
+  text-align: left; /* Ensures alignment with your existing text styles */
+  color:#000000; 
+  font-size: 18px;
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
