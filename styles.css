@@ -161,6 +161,13 @@ p {
   height: auto /*Ensures it matches height of the input */
 }
 
+/*OBS. this is only the search bar on product pages */
+.header-search-bar {
+  position: absolute;
+  top: 120px; /* Adjust top positioning if needed */
+  right: 30px; /* Moves it to the right corner */
+}
+
 .emojis {
   display: flex;
   justify-content: center;
@@ -178,11 +185,12 @@ p {
   border-radius: 50%; /* Optional: Make images look circular */
 }
 
-#redbull-img {
+#product-img {
   float: right;
   margin-left: 20px; /* Add some space between the image and the text */
-  margin-right: 100px;
-  max-width: 1000; /* Adjust the image size if necessary */
+  margin-right: 200px;
+  width: 100%;
+  max-width: 350px; /* Adjust the image size if necessary */
 }
 
 /* Styling of the breadcrumb*/
@@ -315,4 +323,85 @@ button:hover {
   display: grid; /* Grid layout for better alignment */
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto-adjust based on available space */
   gap: 10px;
+}
+
+/* Til brugerpræferencer */
+/* Generelle stilarter */
+.container {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px; /* Gap mellem bokse */
+}
+
+/* Filtreringsbokse */
+.filterDiv {
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  cursor: pointer; /* Klikbar */
+  border: 2px solid transparent;
+  user-select: none;
+  display: inline-block;
+}
+
+.filterDiv.disabled {
+  background-color: #d3d3d3; 
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.filterDiv.selected {
+  border: 2px solid #FFD700; 
+  background-color: #1769aa; 
+}
+
+/* Kategorititel */
+.category {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  clear: both;
+  width: 100%;
+}
+
+/* Knapstilarter */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Apply-knap stilarter */
+.apply-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.apply-btn.hidden {
+  display: none;
 }

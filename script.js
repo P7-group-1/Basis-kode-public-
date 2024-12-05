@@ -84,3 +84,55 @@ window.addEventListener('DOMContentLoaded', function() {
       userArea.innerHTML = `<span>Welcome, ${loggedInUser}</span>`;
   }
 });
+
+function toggleSelection(element) {
+  const isNoNeeded = element.textContent === "No needed";
+
+  if (isNoNeeded) {
+    if (element.classList.contains("selected")) {
+      element.classList.remove("selected");
+      disableOtherFilters(false); // Enable other filters again
+    } else {
+      element.classList.add("selected");
+      disableOtherFilters(true); // Disable other filters
+    }
+  } else {
+    element.classList.toggle("selected");
+  }
+
+  updateApplyButton();
+}
+
+function disableOtherFilters(disable) {
+  const filters = document.querySelectorAll('.filterDiv');
+  filters.forEach(filter => {
+    if (filter.textContent !== "No needed") {
+      filter.classList.toggle("disabled", disable);
+     
+    }
+  }); 
+}
+
+function updateApplyButton() {
+  const selected = document.querySelectorAll(".filterDiv.selected");
+  const applyBtn = document.getElementById("applyBtn");
+  applyBtn.classList.toggle(selected.length === 0);
+}
+
+function applyFilters() {
+  const selectedFilters = Array.from(
+    document.querySelectorAll(".filterDiv.selected")
+  ).map(filter => filter.textContent);
+
+  alert("Filters applied: " + selectedFilters.join(", "));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Attach event listeners to all filterDiv elements
+  document.querySelectorAll(".filterDiv").forEach(filter => {
+    filter.addEventListener("click", () => toggleSelection(filter));
+  });
+
+  // Attach event listener to the Apply button
+  document.getElementById("applyBtn").addEventListener("click", applyFilters);
+});
