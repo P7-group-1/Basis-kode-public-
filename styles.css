@@ -342,41 +342,40 @@ button:hover {
 
 /* Til brugerpræferencer */
 /* Generelle stilarter */
+/* Container for filters */
 .container {
   margin-top: 20px;
   margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px; /* Gap mellem bokse */
+  gap: 10px;
 }
 
-/* Filtreringsbokse */
+/* Filter boxes */
 .filterDiv {
   background-color: #2196F3;
-  color: #ffffff;
+  color: white;
   width: 100px;
   height: 100px;
   line-height: 100px;
   text-align: center;
-  cursor: pointer; /* Klikbar */
+  cursor: pointer;
   border: 2px solid transparent;
   user-select: none;
   display: inline-block;
 }
 
-.filterDiv.disabled {
-  background-color: #d3d3d3; 
-  pointer-events: none;
-  opacity: 0.5;
-}
-
 .filterDiv.selected {
-  border: 2px solid #FFD700; 
-  background-color: #1769aa; 
+  border: 2px solid #FFD700;
+  background-color: #1769aa;
 }
 
-/* Kategorititel */
+.filterDiv.disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+/* Category labels */
 .category {
   margin-top: 20px;
   font-weight: bold;
@@ -385,25 +384,7 @@ button:hover {
   width: 100%;
 }
 
-/* Knapstilarter */
-.btn {
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #ddd;
-}
-
-.btn.active {
-  background-color: #666;
-  color: white;
-}
-
-/* Apply-knap stilarter */
+/* Apply button */
 .apply-btn {
   background-color: #4CAF50;
   color: white;
@@ -417,6 +398,3 @@ button:hover {
   text-align: center;
 }
 
-.apply-btn.hidden {
-  display: none;
-}
