@@ -342,59 +342,159 @@ button:hover {
 
 /* Til brugerpræferencer */
 /* Generelle stilarter */
-/* Container for filters */
-.container {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* Overordnet styling til filter-sektionen */
+#filter-section {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 700px; /* Øget max-width for at give mere plads til horisontale elementer */
+  background: #f9f9f9;
+  font-family: 'Quicksand', sans-serif;
 }
 
-/* Filter boxes */
-.filterDiv {
-  background-color: #2196F3;
-  color: white;
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+/* Overskrift for filter-sektionen */
+#filter-section h2 {
+  font-size: 1.6em;
+  color: #333;
   text-align: center;
-  cursor: pointer;
-  border: 2px solid transparent;
-  user-select: none;
-  display: inline-block;
+  margin-bottom: 15px;
 }
 
-.filterDiv.selected {
-  border: 2px solid #FFD700;
-  background-color: #1769aa;
-}
-
-.filterDiv.disabled {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
-}
-
-/* Category labels */
-.category {
+/* Kategorititel */
+h3 {
   margin-top: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  clear: both;
-  width: 100%;
+  color: #555;
+  font-size: 1.2em;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-/* Apply button */
-.apply-btn {
+/* Container til filtrene - ændret til at vise horisontalt */
+#filter-section form {
+  display: flex;
+  flex-wrap: wrap; /* Sørger for at elementerne kan brydes til næste linje */
+  gap: 15px; /* Gap mellem filtrene */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Checkboxes og labels styling */
+#filter-section label {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #444;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+#filter-section input[type="checkbox"] {
+  margin-right: 5px;
+  accent-color: #42a5f5;
+  transform: scale(1.1); /* Lidt større checkbox */
+  cursor: pointer;
+}
+
+/* Disabled checkbox styling */
+#filter-section input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Apply-knappen (grøn) */
+#apply-filters {
   background-color: #4CAF50;
   color: white;
   padding: 12px 16px;
-  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  text-align: center;
-  margin-top: 30px;
-  display: block;
+  transition: background-color 0.3s ease;
   width: 100%;
+  margin-top: 20px; /* Giver lidt afstand fra filtrene */
   text-align: center;
 }
 
+#apply-filters:hover {
+  background-color: #45a049;
+}
+
+/* Clear Filters-knappen (rød) */
+#clear-filters {
+  background-color: #f44336;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+}
+
+#clear-filters:hover {
+  background-color: #e53935;
+}
+
+/* Styling for resultat-container */
+#filtered-results {
+  margin-top: 15px;
+  font-size: 1em;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for ul og li */
+#filtered-results ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+}
+
+#filtered-results li {
+  margin: 2px 0;
+}
+
+/* Styling for 'No needed' checkbox, when disabled */
+#general-noneeded:disabled + label {
+  color: #aaa;
+}
+/* Styling af produkter, der indeholder et valgt filter */
+.product-item.filtered {
+  border: 3px solid #4CAF50; /* Grøn ramme, når produktet indeholder et valgt filter */
+  background-color: #f0f9f0; /* Let grøn baggrund */
+  position: relative;
+  padding: 20px;
+}
+
+.product-item.filtered::after {
+  content: "Contains Selected Filter";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Styling af mærkaterne for filtrene */
+.filter-tag {
+  background-color: #4CAF50; /* Grøn baggrund for filter-tag */
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin: 5px;
+  display: inline-block;
+}
+.filtered {
+  border: 2px solid green;
+  background-color: #d0f0d0; /* Grønlig baggrund for filtrerede produkter */
+}

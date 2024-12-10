@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriScan</title>
+  <title>My Profile</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -29,6 +29,7 @@
       </div>
       <a href="information.html">Information</a>
       <a href="contactus.html">Contact us</a>
+      <a href="myprofile.html">My profile</a>
     </nav>
     <div id="userArea">
       <a href="login.html" id="loginLink">Log in</a>
@@ -37,41 +38,40 @@
   </header>
 
   <!-- Filter Section -->
-  <<!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter Selection</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h2>Choose filters</h2>
-  
-    <div class="container">
-      <div class="category">General</div>
-      <div class="filterDiv" data-filter="No needed">No needed</div>
-  
-      <div class="category">Allergies</div>
-      <div class="filterDiv" data-filter="Lactose">Lactose</div>
-      <div class="filterDiv" data-filter="Glucose">Glucose</div>
-      <div class="filterDiv" data-filter="Shellfish">Shellfish</div>
-      <div class="filterDiv" data-filter="Citrus">Citrus</div>
-      <div class="filterDiv" data-filter="Nuts">Nuts</div>
-      <div class="filterDiv" data-filter="Eggs">Eggs</div>
-  
-      <div class="category">Nutrition label</div>
-      <div class="filterDiv" data-filter="Sodium">Sodium</div>
-      <div class="filterDiv" data-filter="Fat">Fat</div>
-      <div class="filterDiv" data-filter="Carbohydrates">Carbohydrates</div>
-      <div class="filterDiv" data-filter="Protein">Protein</div>
-      <div class="filterDiv" data-filter="Sugar">Sugar</div>
-    </div>
-  
-    <button id="applyBtn" class="apply-btn">Apply</button>
-  
-    <script src="script.js"></script>
-  </body>
-  </html>
-  
+  <main id="main-section" class="centered-page">
+    <section id="filter-section">
+      <h2>Apply Filters</h2>
+      <form id="filter-form">
+          <h3>Allergies</h3>
+          <label><input type="checkbox" id="allergies-lactose"> Lactose</label><br>
+          <label><input type="checkbox" id="allergies-nuts"> Nuts</label><br>
+          <label><input type="checkbox" id="allergies-gluten"> Gluten</label><br>
+          <label><input type="checkbox" id="allergies-citrus"> Citrus</label><br>
+          <label><input type="checkbox" id="allergies-shellfish"> Shellfish</label><br>
+          <label><input type="checkbox" id="allergies-eggs"> Eggs</label><br>
 
+          <h3>Nutrition label</h3>
+          <label><input type="checkbox" id="nutrition-sodium"> Sodium</label><br>
+          <label><input type="checkbox" id="nutrition-protein"> Protein</label><br>
+          <label><input type="checkbox" id="nutrition-carbohydrates"> Carbohydrates</label><br>
+          <label><input type="checkbox" id="nutrition-sugar"> Sugar</label><br>
+          <label><input type="checkbox" id="nutrition-fat"> Fat</label><br>
+
+          <h3>General</h3>
+          <label><input type="checkbox" id="general-noneeded"> No needed</label><br>
+
+          <button type="button" id="apply-filters">Apply</button>
+          <button type="button" id="clear-filters">Clear All</button>
+      </form>
+
+      <!-- Container to show the selected filters -->
+      <div id="filtered-results" style="margin-top: 20px;"></div>
+
+      <ul id="active-filters-list"></ul>
+
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
