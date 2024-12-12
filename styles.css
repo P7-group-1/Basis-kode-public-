@@ -498,3 +498,75 @@ h3 {
   border: 2px solid green;
   background-color: #d0f0d0; /* Grønlig baggrund for filtrerede produkter */
 }
+
+/* Container for the text and button */
+#text-container {
+  width: 40%; /* Match the width of the table for alignment */
+  margin-top: 20px; /* Add some spacing between the table and this section */
+  margin-left: 20px; /* Align it to the left */
+  text-align: left; /* Ensure the text aligns to the left */
+}
+
+/* test of see more button */
+#more {
+    display: none;
+}
+
+#myBtn {
+  margin-top: 10px; /* Add space between the paragraph and the button */
+  vertical-align: middle; /* Align the button with the text vertically */
+  cursor: pointer; /* Add a pointer cursor for better UX */
+  display: inline-block; 
+  background-color: #45a049; /*green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding for a nice button size */
+  font-size: 16px; /* Make the text larger */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.table-container {
+  display: block;
+  width: 40%;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+table {
+  width: 100%;
+  border:0.5px solid black;
+  border-collapse: collapse;
+  color: #000000;
+}
+
+th,td {
+  border: 0.5px solid black;
+  padding: 2px;
+  text-align: left;
+  color: #000000;
+}
+
+/* circles for color code on product sides */
+.circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%; /* Makes it a circle */
+  margin-left: 5px; /* Adds spacing between the text and the circle */
+  vertical-align: middle; /* Aligns with the text */
+  border: 1px solid black; /* Adds a black outline */
+}
+
+.circle.yellow {
+  background-color: yellow;
+}
+
+.circle.green {
+  background-color: green;
+}
+
+.circle.red {
+  background-color: red;
+}
+
