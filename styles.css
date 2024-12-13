@@ -508,11 +508,11 @@ h3 {
 }
 
 /* test of see more button */
-#more {
+[id^="more"] {
     display: none;
 }
 
-#myBtn {
+[id^="myBtn"] {  /*  ^ det der begynder med myBtn, der skal alle inkluderede elementer med id MyBtn, så skal den følge det som står herunder */
   margin-top: 10px; /* Add space between the paragraph and the button */
   vertical-align: middle; /* Align the button with the text vertically */
   cursor: pointer; /* Add a pointer cursor for better UX */

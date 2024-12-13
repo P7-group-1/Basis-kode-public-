@@ -254,10 +254,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // For the read more read less button
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+function myFunction(id) {
+  var dots = document.getElementById(`dots${id}`); // ($) alt det herinde bliver også til en sting, og bliver samlet sendt tilbage, så smartere end en masse +
+  var moreText = document.getElementById(`more${id}`); 
+  var btnText = document.getElementById(`myBtn${id}`);
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
