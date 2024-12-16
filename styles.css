@@ -179,8 +179,27 @@ p {
 /*OBS. this is only the search bar on product pages */
 .header-search-bar {
   position: absolute;
-  top: 120px; /* Adjust top positioning if needed */
-  right: 30px; /* Moves it to the right corner */
+  top: 130px; /* Adjust top positioning if needed */
+  right: 80px; /* Moves it to the right corner */
+  display: flex;
+}
+
+.header-search-bar input {
+  font-size: 16px; /*adjust size of text in the input */
+  padding: 10px; /* increases padding for bigger search bar */
+  border: 1px solid #ccc; /*lighter border for better styling */
+  border-radius: 4px; /*for softer/rounder corners */
+}
+
+.header-search-bar button {
+  background-color: #45a049;
+  font-size: 16px; 
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
 }
 
 .emojis {
@@ -205,7 +224,7 @@ p {
   margin-left: 20px; /* Add some space between the image and the text */
   margin-right: 200px;
   width: 100%;
-  max-width: 350px; /* Adjust the image size if necessary */
+  max-width: 600px; /* Adjust the image size if necessary */
 }
 
 /* Styling of the breadcrumb*/
