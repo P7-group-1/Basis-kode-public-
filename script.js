@@ -14,43 +14,55 @@ document.addEventListener('DOMContentLoaded', function() {
  }
  
   // Attach event listeners to buttons for the carousel
-  const imagesContainer = document.querySelector('.carousel-images');
-  const prevButton = document.querySelector('.prev');
-  const nextButton = document.querySelector('.next');
+  //const (constant) = declaration of variables, values not change after being assigned
+  //imagesContainer is declared with const bc the variable will always reference the same DOM element and does not need to be reassigned. 
+  const imagesContainer = document.querySelector('.carousel-images'); //The container holding all images
+  const prevButton = document.querySelector('.prev'); //the "previous" button element
+  const nextButton = document.querySelector('.next'); //the "nex" button element
 
-  if (imagesContainer && prevButton && nextButton) {
-    let currentIndex = 0; // Keep track of the current image
-    const totalImages = document.querySelectorAll('.carousel-images img').length; // Total number of images
+  //ensure all necessary elements are found before proceeding 
+  //let = declaration of variables whose values might change later - can be reassigned
+  //currentIndex is declared with let bc its value changes dynamically as users navigate through the carousel
+  if (imagesContainer && prevButton && nextButton) { 
+    let currentIndex = 0; // Keep track of the current image. Index of the current starting image in the carousel
+    const totalImages = document.querySelectorAll('.carousel-images img').length; // Count of Total number of images in the carousel
     const imagesPerSlide = 3; // Show 3 images at a time
 
+    //update the carousel to show the current set of images
+    //calculates the percentage offset based on currentIndex
     function updateCarousel() {
-      const offset = -(currentIndex * (100 / imagesPerSlide)); // Calculate offset percentage
-      imagesContainer.style.transform = `translateX(${offset}%)`;
+      const offset = -(currentIndex * (100 / imagesPerSlide)); // Calculate offset percentage, determine the horisontal shift as a percentage
+      imagesContainer.style.transform = `translateX(${offset}%)`; //apply the transformation to show the correct slide
     }
 
+    //show the next set of image in the carousel 
+    //if at the end, wrap around to the beginning
     function nextSlide() {
       if (currentIndex < totalImages - imagesPerSlide) {
-        currentIndex++;
+        currentIndex++; //move to the next slide
       } else {
-        currentIndex = 0; // Loop back to the beginning
+        currentIndex = 0; // Loop back to the beginning if at the end
       }
-      updateCarousel();
+      updateCarousel(); //update the carousel display
     }
 
+    //show the previous set of images of the carousel
+    //if at the begining, wrap around to the last full set
     function prevSlide() {
       if (currentIndex > 0) {
-        currentIndex--;
+        currentIndex--; //move to the previous slide
       } else {
         currentIndex = totalImages - imagesPerSlide; // Loop back to the last full set
       }
-      updateCarousel();
+      updateCarousel(); //update the carousel display
     }
 
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
+    //add click event listeners to the next and previous buttons
+    nextButton.addEventListener('click', nextSlide); //on "next" button click, go to the next slide
+    prevButton.addEventListener('click', prevSlide); //on "previous" button click, go to the previous slide
 
-    // Auto-slide every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Auto-slide every 5 seconds to the next slide
+    setInterval(nextSlide, 5000); //it calls nextSlide repeatedly every 5000 milliseconds
   }
 
   // Apply filters button logic

@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NutriScan</title>
+  <!--Metadata about the document-->
+  <meta charset="UTF-8"> <!-- Character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ensures proper scaling on mobile devices -->
+  <title>NutriScan</title> <!--Page title visible on the browser tab -->
+
+  <!-- Linking external fonts and stylesheets -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header Section containing logo, navigation links, and user area-->
   <header id="header-section">
     <div class="logo">
-      <img src="Images/logo_2.PNG" alt="NutriScan Logo">
+      <img src="Images/logo_2.PNG" alt="NutriScan Logo"> <!-- Logo image: img tag embeds an image, src attribute tells the program where to find the image-->
       <div>
-        <h1 onclick="goToHomepage()">NutriScan</h1>
+        <h1 onclick="goToHomepage()">NutriScan</h1> <!-- Clickable title redirects to homepage. Clickable using a JavaScript function -->
         <p onclick="goToHomepage()">One click away from a healthier future</p>
       </div>
     </div>
+    <!-- Main navigation bar -->
     <nav>
-      <a href="homepage.html">Home</a>
-      <div class="dropdown">
-        <a href="products_all.html"><b>Products</b> &#11206;</a>
+      <a href="homepage.html">Home</a> <!-- Link to home page, href attribute= hyperlinks, tells the browser where to go. They store an URL -->
+      <div class="dropdown"> <!-- dropdown menu for product categories -->
+        <a href="products_all.html"><b>Products</b> &#11206;</a> <!-- &#11206; = hex code for an icon, here it is a downwards arrow -->
         <div class="dropdown-content">
           <a href="beverages.html">Beverages</a>
           <a href="dairy.html">Dairy</a>
@@ -31,60 +35,67 @@
       <a href="contactus.html">Contact us</a>
       <a href="myprofile.html">My profile</a>
     </nav>
+    <!-- User loging and sign up area-->
     <div id="userArea">
       <a href="login.html" id="loginLink">Log in</a>
       <a href="signup.html" id="signupLink">Sign up</a>
     </div>
 </header>
 
+<!-- Search bar section -->
 <div class="header-search-bar">
-  <input type="text" placeholder="Search products..." />
-  <button>Search</button>
+  <input type="text" placeholder="Search products..." /> <!-- input field for typing the search query -->
+  <button>Search</button> <!-- search button to trigger the search -->
 </div>
 
-<nav> <!-- breadcrumb-->
+<nav> <!-- breadcrumb navigation for product categories -->
   <ul class="breadcrumb">
-    <li><a href="products_all.html">Product categories </a></li>
-    <li><a href="beverages.html">Beverages </a></li>
+    <li><a href="products_all.html">Product categories </a></li> <!-- previous pages, ul and li are used for listing-->
+    <li><a href="beverages.html">Beverages </a></li> <!-- each breadcrumb is clickable using href -->
     <li><a href="energydrinks.html">Energy drinks </a></li>
-    <li>Booster</li>
+    <li>Booster</li> <!-- current page (not clickable) -->
   </ul>
 </nav>
       
     <body>
-        <main>
-            <body class="left-aligned-page">
+        <main> <!-- main section of the product page -->
+            <body class="left-aligned-page"> <!-- class so it can be styled in CSS, left-aligned as we want the text on the left side -->
                 <main id="main-section">
-                  <h1>Booster, 500ml</h1>
-                  <div class="content">
-                    <img id="product-img" src="Images/booster_2.PNG" alt="Product Image">
+                  <h1>Booster, 500ml</h1> <!-- Product title and information-->
+                  <div class="content"> <!-- wrapper for product content -->
+                    <img id="product-img" src="Images/booster_2.PNG" alt="Product Image"> <!-- Product image -->
                     <p>Nutrition Facts</p>
+                    <!-- inline styles for table formatting -->
                     <style>
                       table {
-                        border-collapse: collapse;
-                        width: 35%;
+                        border-collapse: collapse; /*removes spacing between table cells */
+                        width: 35%; /* width of the table as a percentage of its container */
                       }
                       th, td {
-                        border: 1px solid black;
-                        padding: 8px;
-                        text-align: left;
+                        border: 1px solid black; /* thin black border for every cell */ 
+                        padding: 8px; /* spacing inside table cells */ 
+                        text-align: left; /* aligns content to the left of the cell */
                       }
                       th {
-                        background-color: #f4f4f4;
+                        background-color: #f4f4f4; /* light grey background for header cells */
                       }
                     </style>
-                    <div class="table-container">
-                    <table style="width:100%">
+
+                    <!-- Table displaying nutritional details -->
+                    <div class="table-container"> <!-- wrapper to style or position the table if necessary -->
+                    <table style="width:100%"> <!-- inline style for full width of parent container -->
                       <tr>
+                        <!-- table headers -->
                         <th>Nurition</th>
                         <th>Amount</th>
                         <th>Rating</th>
                         <th>Recommended for adults total energy intake</th>
                       </tr>
                       <tr>
-                        <td>Calories</td>
+                        <!-- rows, here calories -->
+                        <td>Calories</td> 
                         <td>204 kJ / 49 kcal</td>
-                        <td><i class="fas fa-check-circle" style="color: green;"></i></td>
+                        <td><i class="fas fa-check-circle" style="color: green;"></i></td> <!-- icon for rating, using Font Awesome (added at the very bottom) -->
                         <td>Recommended amoutn is around 2,000kcal for females and 2,500kcal for males</td>
                       </tr>
                       <tr>
@@ -97,9 +108,9 @@
                         <td>Saturated Fat</td>
                         <td>0g</td>
                         <td>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" viewBox="0 0 24 24">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" viewBox="0 0 24 24"> <!-- looks crazy, but basically downloaded icons for warning, imported directly here -->
                             <path d="M12 2c-.44 0-.87.22-1.1.6L1.46 20.4a1.25 1.25 0 0 0 1.1 1.85h19.88c.97 0 1.57-1.05 1.1-1.85L13.1 2.6A1.25 1.25 0 0 0 12 2zm0 15a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zm-1-9c0-.55.45-1 1-1s1 .45 1 1v5c0 .55-.45 1-1 1s-1-.45-1-1V8z"/>
-                          </svg>
+                          </svg> <!-- it is an svg file -->
                           </td>
                         <td>Should be limited to a maximum of 10%</td>
                       </tr>
@@ -145,18 +156,19 @@
                         </svg></td>
                         <td>Should be less than 2,300 mg daily, aim for amount of 5% </td>
                       </tr>
-                      
                     </table>
                 </div>
-                <div id="text-container">
-                    <p>
-                      <b>Caffeine </b> <span class="circle yellow"></span>
-                      <span id="dots1"></span>
-                      <span id="more1">
+
+                <!-- text description for additives -->
+                <div id="text-container"> <!-- individual content container for expanable text -->
+                    <p> <!-- p = paragraph -->
+                      <b>Caffeine </b> <span class="circle yellow"></span> <!-- visual indication using a colour circle, <b> = bold text -->
+                      <span id="dots1"></span> <!-- Placeholder span for "dots" before "read more". Each dot has it's own id so they will fold out and in individually -->
+                      <span id="more1"> <!-- span containing addition information, revealed by "read more" button -->
                         <br>For a typical adult the recommended amound of coffeine is 400 milligrams* a day. That's about two to three 12-fluid-ounce cups of coffee. Caffeine can lead to addiction and ... it's therefore recommended to only consume the recommeded amount. This product have an amount of koffein 32mg. 
                       </span>
                     </p>
-                    <button onclick="myFunction(1)" id="myBtn1">Read more</button>
+                    <button onclick="myFunction(1)" id="myBtn1">Read more</button> <!-- Button triggers myFunction with ID passed as an argument (expanable section button)-->
                   </div>
 
                 <div id="text-container">
@@ -197,10 +209,11 @@
         </main>
     </body>
 
-     <!-- Link to the JavaScript file -->
+     <!-- Link to the JavaScript file for interactivity -->
   <script src="script.js"></script>
   <link rel="stylesheet" href="styles.css">
-
+  
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </body>
