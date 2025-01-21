@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(nextSlide, 5000); //it calls nextSlide repeatedly every 5000 milliseconds
   }
 
-  // Apply filters button logic
-  const applyButton = document.getElementById('apply-filters');
+  // Logic for the "apply filters" button logic
+  const applyButton = document.getElementById('apply-filters'); //get the "apply filters" button
 if (applyButton) {
     applyButton.addEventListener('click', function(event) {
         console.log('Apply filters button clicked!');
@@ -76,12 +76,12 @@ if (applyButton) {
 
         // Add your filter application logic here
         const resultsContainer = document.getElementById('filtered-results');
-        resultsContainer.innerHTML = ''; // Clear previous results
+        resultsContainer.innerHTML = ''; // Clear/remove previous content in the results container
 
-        // Gather selected filters
+        // Gather all selected filters from checkboxes
         const selectedFilters = [];
         if (document.getElementById('allergies-lactose').checked) {
-            selectedFilters.push('Lactose');
+            selectedFilters.push('Lactose'); //add "lactose" the the checkbox is checked
         }
         if (document.getElementById('allergies-nuts').checked) {
             selectedFilters.push('Nuts');
@@ -115,48 +115,53 @@ if (applyButton) {
             selectedFilters.push('Fat');
         }
 
+        //check for a general "no needed" selection
         if (document.getElementById('general-noneeded').checked) {
-            selectedFilters.push('No needed');
+            selectedFilters.push('No needed'); //add "no needed"
         }
 
-        // Display selected filters
+        // Display selected filters on the UI
         if (selectedFilters.length > 0) {
-            const list = document.createElement('ul');
+            const list = document.createElement('ul'); //create an unordered (ul) list element
             selectedFilters.forEach(function(filter) {
-                const listItem = document.createElement('li');
-                listItem.textContent = filter;
-                list.appendChild(listItem);
+                const listItem = document.createElement('li'); //create a list item for each filter
+                listItem.textContent = filter; //set the text of the list item
+                list.appendChild(listItem); //add the list item to the list
             });
-            resultsContainer.appendChild(list);
+            resultsContainer.appendChild(list); //add the entire list to the results container
         } else {
-            resultsContainer.textContent = 'No filters selected.';
+            resultsContainer.textContent = 'No filters selected.'; //show message if no filters are selected 
         }
-    }); // Correctly close the event listener
+    }); // Correctly close the event listener, end of "click" event listener for the applu button
 }})
-const clearButton = document.getElementById('clear-filters');
+
+//logic for the "clear filters" button
+const clearButton = document.getElementById('clear-filters'); //get the "clear filters" button
 if (clearButton) {
     clearButton.addEventListener('click', function() {
         console.log('Clear all filters button clicked!');
 
-        // Hent alle checkbokse
+        // Hent alle checkbokse, get all checkboxes in the filter form 
         const checkboxes = document.querySelectorAll('#filter-form input[type="checkbox"]');
         
-        // Fjern markeringen fra alle checkbokse
+        // Fjern markeringen fra alle checkbokse, uncheck all checkboxes 
         checkboxes.forEach(function(checkbox) {
-            checkbox.checked = false;
+            checkbox.checked = false; //uncheck the checkbox
         });
 
-        // Fjern eventuelle tidligere resultater
+        // Fjern eventuelle tidligere resultater, clear any previously display filtered results
         const resultsContainer = document.getElementById('filtered-results');
         if (resultsContainer) {
-            resultsContainer.innerHTML = 'No filters selected.';
+            resultsContainer.innerHTML = 'No filters selected.'; //reset message to default 
         }
     });
 }
-const noNeededCheckbox = document.getElementById('general-noneeded');
+
+//logic for the "no needed" checkbox
+const noNeededCheckbox = document.getElementById('general-noneeded'); //get the "no needed" checkbox
 if (noNeededCheckbox) {
     noNeededCheckbox.addEventListener('change', function() {
-        // Hent alle andre checkbokse
+        // Hent alle andre checkbokse, get all other checkbox except "no needed"
         const otherCheckboxes = document.querySelectorAll('#filter-form input[type="checkbox"]:not(#general-noneeded)');
         
         // Hvis "No needed" er valgt
@@ -176,21 +181,22 @@ if (noNeededCheckbox) {
 }
 // selve koden der får filtrene til at fungere
 // Gem filtrene, når brugeren klikker på "Apply Filters"
+// Save selected filters to localStorage and retrieve them on page load
 document.addEventListener('DOMContentLoaded', function() {
   // Apply filters button logic
   const applyButton = document.getElementById('apply-filters');
   if (applyButton) {
     applyButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent form submission
+      event.preventDefault(); // Prevent default form submission
       console.log('Apply filters button clicked!');
 
-      const selectedFilters = [];
+      const selectedFilters = []; //array to store selected filters
 
       // Gather selected filters from checkboxes
       const checkboxes = document.querySelectorAll('#filter-form input[type="checkbox"]');
       checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
-          selectedFilters.push(checkbox.id);
+          selectedFilters.push(checkbox.id); //add checkbox ID to the array
         }
       });
 
@@ -204,26 +210,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Apply filters when the page loads
-  const storedFilters = JSON.parse(localStorage.getItem('selectedFilters')) || [];
+  const storedFilters = JSON.parse(localStorage.getItem('selectedFilters')) || []; //retrieve filters from localStorage
   const activeFiltersList = document.getElementById('active-filters-list');
   if (storedFilters.length > 0) {
     storedFilters.forEach((filter) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = filter.replace(/-/g, ' '); // Remove hyphens for readability
-      activeFiltersList.appendChild(listItem);
+      const listItem = document.createElement('li'); //create a list item for each saved filter
+      listItem.textContent = filter.replace(/-/g, ' '); // Remove hyphens in IDs for better readability
+      activeFiltersList.appendChild(listItem); //add list item to the active filters list
     });
   } else if (activeFiltersList) {
-    activeFiltersList.textContent = 'No filters applied.';
+    activeFiltersList.textContent = 'No filters applied.'; //message if no filters are saved
   }
 
   // Apply filters to products
-  const products = document.querySelectorAll('.product-item');
+  const products = document.querySelectorAll('.product-item'); //select all product items on the page
   products.forEach((product) => {
+    //get product tags from the 'data-tags' attribute, splitting them into an array
     const productTags = product.dataset.tags ? product.dataset.tags.split(',') : [];
+
+    //determine if the product should be visible
+    //check if all stored filters are included in the product's tag
     const isVisible = storedFilters.every((filter) => productTags.includes(filter));
     
     if (isVisible || storedFilters.length === 0) {
       product.style.display = 'block'; // Show product if it matches filters
+      
+      //check if the product matches any filters for highlight purposes
       const matchesFilters = storedFilters.some(filter => productTags.includes(filter));
       if (matchesFilters) {
         product.classList.add('filtered'); // Highlight product if it contains a selected filter
@@ -236,29 +248,32 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Clear filters functionality
-  const clearButton = document.getElementById('clear-filters');
+  const clearButton = document.getElementById('clear-filters'); //get the "clear filters" button
   if (clearButton) {
     clearButton.addEventListener('click', function() {
       localStorage.removeItem('selectedFilters'); // Remove filters from localStorage
-      alert('Filters cleared!');
-      location.reload(); // Reload the page to reset product view
+      alert('Filters cleared!'); //show a confirmation alert to the user
+      location.reload(); // Reload the page to reset product view and UI to its original state
     });
   }
 
   // "No needed" checkbox logic (disable other filters when checked)
-  const noNeededCheckbox = document.getElementById('general-noneeded');
+  const noNeededCheckbox = document.getElementById('general-noneeded'); //get the "no needed" checkbox
   if (noNeededCheckbox) {
     noNeededCheckbox.addEventListener('change', function() {
+      //select all checkbox except the "no needed" checkbox
       const otherCheckboxes = document.querySelectorAll('#filter-form input[type="checkbox"]:not(#general-noneeded)');
       
       if (noNeededCheckbox.checked) {
+        //if "no needed" is checked, disable and uncheck all other checkbox
         otherCheckboxes.forEach((checkbox) => {
-          checkbox.disabled = true;
-          checkbox.checked = false;
+          checkbox.disabled = true; //disable the checkbox
+          checkbox.checked = false; //uncheck the checkbox if it was selected
         });
       } else {
+        //if "no needed" is unchecked, re-enable all other checkboxes
         otherCheckboxes.forEach((checkbox) => {
-          checkbox.disabled = false;
+          checkbox.disabled = false; //enable the checkbox
         });
       }
     });
@@ -266,18 +281,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // For the read more read less button
+// function to toggle "read more" and "read less" functionality for text content
 function myFunction(id) {
+  //dynamically get elements based on the passed ID
+  // the "..." placeholder (dots) to indicate truncated content
   var dots = document.getElementById(`dots${id}`); // ($) alt det herinde bliver også til en sting, og bliver samlet sendt tilbage, så smartere end en masse +
-  var moreText = document.getElementById(`more${id}`); 
-  var btnText = document.getElementById(`myBtn${id}`);
+  var moreText = document.getElementById(`more${id}`); //the additional text that becomes visible when expanded
+  var btnText = document.getElementById(`myBtn${id}`); // the button that toggles between "read more" and "read less"
 
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
+  //check if the dots are currently hidden (e.g., content is expanded)
+  if (dots.style.display === "none") { 
+    //if expanded, revert to showing truncated content 
+    dots.style.display = "inline"; //show the "..." placeholder (seen on the interface)
+    btnText.innerHTML = "Read more"; // change button text back to "read more"
+    moreText.style.display = "none"; //hide the additional text
   } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
+    //if truncated, expand to show full content
+    dots.style.display = "none"; //hide the "..." placeholder
+    btnText.innerHTML = "Read less"; //change button text to "read less"
+    moreText.style.display = "inline"; //display the additional text 
   }
-}
+} //original text = the full conent of the paragraph 
+  //truncated text = is where some of the text is hidden by using the [read more]
