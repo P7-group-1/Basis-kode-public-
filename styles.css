@@ -148,12 +148,14 @@ p {
   font-size: 18px;
 }
 
-.search-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 55px auto;
-  width: 50%;
+/*styles for search bar container */
+.search-bar {  /*ID name */
+  display: flex; /*makes the container a flexbox for easy alignment of its children */
+  justify-content: center; /*centers the child elements horizontally within the container */ /*makes sure input and button are perfectly centered */
+  align-items: center; /*centers the child elements vertically within the container */
+  margin: 55px auto; /*adds 55px vertical space above and below, and centers the search bar horizontally (auto) */
+  width: 50%; /*sets the search bar container to 50 % of the parent element's width */
+    /* keeps the search bar container half as wide */ 
 }
 
 .search-bar input {
@@ -567,18 +569,19 @@ th,td {
 }
 
 /* circles for color code on product sides */
-.circle {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%; /* Makes it a circle */
+.circle { /*.circle is the class name from HTML */ 
+  display: inline-block; /*Allows the circle to appear inline with text or other elements */
+  width: 16px; /*sets the width of the circle */
+  height: 16px; /*sets the height of the circle */
+  border-radius: 50%; /* Makes the element a circle */
   margin-left: 5px; /* Adds spacing between the text and the circle */
-  vertical-align: middle; /* Aligns with the text */
-  border: 1px solid black; /* Adds a black outline */
+  vertical-align: middle; /* Aligns the circle vertically with surrounding text */
+  border: 1px solid black; /* Adds a thin black outline/border around the circle */
 }
 
+/*specific stye for yellow circle */
 .circle.yellow {
-  background-color: yellow;
+  background-color: yellow; /*fills circle with yellow color */
 }
 
 .circle.green {
