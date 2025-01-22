@@ -1,15 +1,19 @@
 // Sørg for, at hele koden kører, når DOM'en er fuldt indlæst
 document.addEventListener('DOMContentLoaded', function() {
   
+  //function to handle product search based on user input
   function searchProduct() {
+    //retrieve the value entered in the search barm convert to lowercase for case-insensitive matching
     const searchInput = document.getElementById("search-bar").value.toLowerCase();
  
- 
+    //check if the search input matches the product name "redbull"
     if (searchInput === "redbull") {
-        // Redirect to the RedBull page
-        window.location.href = "products.html"; // Ensure the file path is correct
+        // if inout matches redirect user to the RedBull product page
+        
+        window.location.href = "products.html"; // Ensure the file path is correct !OBS! efter vi har ændret siderne linker den ikke til den rigtige længere, bare lige en obs. 
     } else {
-        alert("Product not found!"); // Optional: Handle invalid searches
+        //if input doesn't match, display an alert to inform user
+        alert("Product not found!"); // Optional: provides feedback for invalid searches
     }
  }
  

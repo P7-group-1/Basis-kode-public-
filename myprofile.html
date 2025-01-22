@@ -37,21 +37,25 @@
     </div>
   </header>
 
-  <body class="left-aligned-page">
+  <body class="left-aligned-page"> <!--body of the webpage with a class for styling, left aligned text -->
+    <!-- main content section of the page -->
     <main id="main-section">
-      <h1>My Profile</h1>
-      <p>
+      <h1>My Profile</h1> <!-- page heading-->
+      <p> <!-- introduction text, <p> = paragraph, <b> = bold text -->
         At NutriScan, we hope to help make food labels easier to understand and tailored to your needs. <br>
         <b>Customize your preferences:</b> Select allergies, dietary preferences, or ingredients you want to watch out for. <br>
         <b>Stay alert with visual highlights:</b> If a product contains something you’re tracking, we’ll highlight it directly in the content description of products you search for.
       </p>
 
-  <!-- Filter Section -->
+  <!-- main section for filters with centered alignment -->
   <main id="main-section" class="centered-page">
+    <!-- filter section to apply user preferences -->
     <section id="filter-section">
       <h2>Apply Filters</h2>
+      <!-- filter form for user preferences -->
       <form id="filter-form">
-          <h3>Allergies</h3>
+          <h3>Allergies</h3> <!-- category-->
+          <!-- checkbox input for vasrious allergies -->
           <label><input type="checkbox" id="allergies-lactose"> Lactose</label><br>
           <label><input type="checkbox" id="allergies-nuts"> Nuts</label><br>
           <label><input type="checkbox" id="allergies-gluten"> Gluten</label><br>
@@ -66,16 +70,19 @@
           <label><input type="checkbox" id="nutrition-sugar"> Sugar</label><br>
           <label><input type="checkbox" id="nutrition-fat"> Fat</label><br>
 
-          <h3>General</h3>
+          <h3>General</h3> <!-- general category -->
+          <!-- checkbox for genereal options -->
           <label><input type="checkbox" id="general-noneeded"> No needed</label><br>
 
+          <!-- buttons for applying or clearing filters -->
           <button type="button" id="apply-filters">Apply</button>
           <button type="button" id="clear-filters">Clear All</button>
       </form>
 
-      <!-- Container to show the selected filters -->
+      <!-- div container to show the selected (active) filters -->
       <div id="filtered-results" style="margin-top: 20px;"></div>
 
+      <!-- unordered list to show active filters -->
       <ul id="active-filters-list"></ul>
 
   </section>
