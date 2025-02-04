@@ -3,19 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
   
   //function to handle product search based on user input
   function searchProduct() {
-    //retrieve the value entered in the search barm convert to lowercase for case-insensitive matching
-    const searchInput = document.getElementById("search-bar").value.toLowerCase();
- 
-    //check if the search input matches the product name "redbull"
+    const searchInput = document.getElementById("search-bar").value.toLowerCase().trim();
+
+    console.log("User searched for:", searchInput); // Debugging
+
     if (searchInput === "redbull") {
-        // if inout matches redirect user to the RedBull product page
-        
-        window.location.href = "products.html"; // Ensure the file path is correct !OBS! efter vi har ændret siderne linker den ikke til den rigtige længere, bare lige en obs. 
+        console.log("Redirecting to: product_redbull.html");
+        window.location.href = "/path/to/product_redbull.html"; 
+    } else if (searchInput === "booster") {
+        console.log("Redirecting to: product_booster.html");
+        window.location.href = "/path/to/product_booster.html"; 
     } else {
-        //if input doesn't match, display an alert to inform user
-        alert("Product not found!"); // Optional: provides feedback for invalid searches
+        alert("Product not found!");
     }
- }
+}
  
   // Attach event listeners to buttons for the carousel
   //const (constant) = declaration of variables, values not change after being assigned

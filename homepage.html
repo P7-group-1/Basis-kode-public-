@@ -58,6 +58,23 @@
       <button onclick="searchProduct()">Search</button> <!-- Search button with event listener -->
     </div>
 
+    <script>
+      function searchProduct() {
+          const searchInput = document.getElementById("search-bar").value.toLowerCase().trim();
+          console.log("User searched for:", searchInput); // Debugging
+    
+          if (searchInput === "redbull") {
+              console.log("Redirecting to: product_redbull.html");
+              window.location.href = "product_redbull.html"; 
+          } else if (searchInput === "booster") {
+              console.log("Redirecting to: product_booster.html");
+              window.location.href = "product_booster.html"; 
+          } else {
+              alert("Product not found!");
+          }
+      }
+    </script>
+
     <!-- image carousel for product categories -->
     <div class="carousel">
       <div class="carousel-images">
@@ -98,7 +115,7 @@
   </div>
 
   <!-- Link to the JavaScript file for added functionality -->
-  <script src="script.js"></script> <!-- external JS file -->
+  <script src="script.js"></script> <!-- external JS file s-->
 </body>
 </html>
 
